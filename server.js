@@ -32,16 +32,16 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get("/index.html", (req, res, next) => {
-    res.sendFile(path.join(__dirname, "index.html"), {dotfiles: "allow"});
-});
+// app.get("/index.html", (req, res, next) => {
+//     res.sendFile(path.join(__dirname, "index.html"), {dotfiles: "allow"});
+// });
 // res.send (Booked tables)
-app.get("/tables.html", (req, res, next) => {
+app.get("/tables", (req, res, next) => {
     res.sendFile(path.join(__dirname, "tables.html"), {dotfiles: "allow"});
 });
 
 // res.send (Make Reservation)
-app.get("/reserve.html", (req, res, next) => {
+app.get("/reserve", (req, res, next) => {
     res.sendFile(path.join(__dirname, "reserve.html"), {dotfiles: "allow"});
 });
 
