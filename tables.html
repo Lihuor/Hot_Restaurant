@@ -56,7 +56,7 @@
     <footer class="footer mt-4">
       <div class="container">
         <p>Control Panel</p>
-        <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API
+        <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a href="/api/waitList">API
             Wait List</a>
       </p></div>
     </footer>
@@ -108,7 +108,7 @@
   function runWaitListQuery() {
 
     // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-    $.ajax({ url: "/api/waitlist", method: "GET" })
+    $.ajax({ url: "/api/waitList", method: "GET" })
       .then(function(waitData) {
 
         // Here we then log the waitlistData to console, where it will show up as an object.
