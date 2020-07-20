@@ -36,14 +36,39 @@ app.get("/index.html", (req, res, next) => {
     res.sendFile(path.join(__dirname, "index.html"), {dotfiles: "allow"});
 });
 // res.send (Booked tables)
-app.get("/view.html", (req, res, next) => {
-    res.sendFile(path.join(__dirname, "view.html"), {dotfiles: "allow"});
+app.get("/tables.html", (req, res, next) => {
+    res.sendFile(path.join(__dirname, "tables.html"), {dotfiles: "allow"});
 });
 
 // res.send (Make Reservation)
 app.get("/reserve.html", (req, res, next) => {
     res.sendFile(path.join(__dirname, "reserve.html"), {dotfiles: "allow"});
 });
+
+
+app.get("/api/tables", (req, res) => {
+    res.json (customers);
+});
+
+app.get("/api/waitList", (req, res) =>{
+    res.json (waitList);
+});
+
+// Creating Clear function
+app.post("/api/clear", (req, res) => {
+    customers = [];
+    waitList = [];
+})
+
+app.post("/api/new", (req, res) => {
+    const newCustomer = req.body;
+    if (customers.length <= 5) {
+        customers.push(newCustomer);
+    } else {
+        waitList.push(newCustomer);
+    }
+    res.json(newCustomer);
+})
 
 // res.send (Make error webpage)
 app.get("*", (req, res, next) => {
