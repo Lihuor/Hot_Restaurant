@@ -104,12 +104,13 @@
     // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
     // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
     // depending on if a tables is available or not.
+    const currentURL = window.location.origin;
 
-    $.post("/api/tables", newReservation,
-      function(data) {
+    $.post(currentURL + "/api/new", newReservation,
+    function(data){
 
         // If a table is available... tell user they are booked.
-        if (data) {
+        if (data == true) {
           alert("Yay! You are officially booked!");
         }
 
@@ -125,8 +126,9 @@
         $("#reserve-unique-id").val("");
 
       });
-
+return false;
   });
 
 </script>
-</body></html>
+</body>
+</html>

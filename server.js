@@ -32,9 +32,6 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// app.get("/index.html", (req, res, next) => {
-//     res.sendFile(path.join(__dirname, "index.html"), {dotfiles: "allow"});
-// });
 // res.send (Booked tables)
 app.get("/tables", (req, res, next) => {
     res.sendFile(path.join(__dirname, "tables.html"), {dotfiles: "allow"});
@@ -61,7 +58,7 @@ app.post("/api/clear", (req, res) => {
 })
 
 app.post("/api/new", (req, res) => {
-    const newCustomer = req.body;
+    const newCustomer = (req.body);
     if (customers.length <= 5) {
         customers.push(newCustomer);
     } else {
